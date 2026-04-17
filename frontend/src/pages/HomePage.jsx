@@ -23,17 +23,17 @@ export default function HomePage(){
         e.preventDefault()
         setFeedback({ type: "", message: "" })
 
-        if(form.name.length <2 || form.name.length > 10){
+        if(form.name.length < 2 || form.name.length > 100){
             setFeedback({
-                type: "erreur",
-                message: "La longueur du nom doit être comprise entre 2 et 10 caractères."
+                type: "error",
+                message: "La longueur du nom doit être comprise entre 2 et 100 caractères."
             })
             return
         }
 
-        if(form.message.length <10 || form.message.length > 2000){
+        if(form.message.length < 10 || form.message.length > 2000){
             setFeedback({
-                type: "erreur",
+                type: "error",
                 message: "La longueur du message doit être comprise entre 10 et 2000 caractères."
             })
             return
@@ -43,7 +43,7 @@ export default function HomePage(){
             await api.post("/contact-requests", form)
 
             setFeedback({
-                type: "succès",
+                type: "success",
                 message: "Votre demande a bien été envoyée."
             })
 
@@ -75,7 +75,7 @@ export default function HomePage(){
                     <p className="mt-3 text-slate-600">Envoyez votre demande via ce formulaire. Notre équipe vous recontactera.</p>
                 </header>
 
-                <section className="rounded-2xl bg(white p-6 shadow-sm ring-1 ring-slate-200">
+                <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
                     <h2 className="mb-6 text-xl font-semibold text-slate-900">Formulaire de contact</h2>
                 </section>
 
