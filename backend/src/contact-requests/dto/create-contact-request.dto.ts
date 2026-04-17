@@ -5,16 +5,16 @@ export class CreateContactRequestDto{
     @IsNotEmpty()
     @MinLength(2)
     @MaxLength(100)
-    name: string
+    name!: string
 
     @IsEmail()
     @IsNotEmpty()
     @MaxLength(150)
-    email: string
+    email!: string
 
     @IsString()
     @IsNotEmpty()
     @MinLength(10)
     @MaxLength(2000)
-    message: string
+    message!: string
 }
